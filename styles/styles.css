@@ -19,6 +19,12 @@ html {
 *::before {
 	box-sizing: inherit;
 }
+:active,
+:hover,
+:focus {
+	outline: 0;
+	outline-offset: 0;
+}
 h1,
 h2,
 h3,
@@ -41,6 +47,9 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+textarea {
+	resize: none;
 }
 /* УТИЛИТЫ */
 
@@ -466,10 +475,11 @@ img {
 .footer .conteiner {
 	display: flex;
 	align-items: baseline;
+	justify-content: space-between;
 }
 
 .address-conteiner {
-	margin-right: 60px;
+	margin-right: 70px;
 }
 
 .logo-studio {
@@ -503,7 +513,11 @@ img {
 	color: var(--accent-color);
 }
 
-.footer-social .title {
+.footer-social {
+	margin-right: 93px;
+}
+.footer-social .title,
+.subscribe .title {
 	line-height: 1.14;
 	text-transform: uppercase;
 	color: var(--primary-bg-white);
@@ -541,6 +555,48 @@ img {
 	border-radius: 50%;
 }
 
+.subscribe-form .form-input {
+	width: 358px;
+	height: 50px;
+	background-color: var(--secondary-bg-black);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+	border-radius: 4px;
+	padding: 15px 16px;
+	margin-right: 12px;
+}
+.subscribe-form {
+	display: flex;
+	align-items: center;
+}
+.subscribe-form .form-input::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 50px;
+	cursor: pointer;
+
+	background-color: var(--accent-color);
+	border: none;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.8;
+	color: var(--secondary-text-white);
+}
+
+.subscribe-icon {
+	width: 24px;
+	height: 24px;
+	margin-left: 10px;
+}
 /* PORTFOLIO STYLES */
 .exempl .button {
 	font-weight: 500;
@@ -686,4 +742,136 @@ img {
 	position: absolute;
 	top: 8px;
 	right: 8px;
+}
+
+/* MODAL FORM */
+.form {
+	width: 448px;
+	height: 501px;
+	margin: 40px;
+}
+
+.form .title {
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 12px;
+}
+.form-field {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-field:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.form-btn {
+	width: 200px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.8;
+	letter-spacing: 0.06em;
+
+	color: var(--secondary-text-white);
+	background-color: var(--accent-color);
+	border: none;
+	border-radius: 4px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.form-label {
+	font-size: 12px;
+	line-height: 1.16;
+	letter-spacing: 0.01em;
+	color: var(--secondary-text-color);
+	margin-bottom: 4px;
+}
+
+.comment {
+	height: 120px;
+	padding-top: 12px;
+	padding-left: 16px;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.comment:focus {
+	border: 1px solid var(--accent-color);
+}
+
+.form-input {
+	width: 100%;
+	margin: 0;
+	padding: 11px 12px 11px 42px;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus + .modal-icon {
+	fill: var(--accent-color);
+}
+.form-input:focus {
+	border: 1px solid var(--accent-color);
+}
+.comment::placeholder {
+	font-size: 12px;
+	line-height: 1.16;
+	color: rgba(117, 117, 117, 0.5);
+}
+
+.input-conteiner {
+	position: relative;
+}
+.modal-icon {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	margin-left: 12px;
+	transform: translateY(50%);
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terms {
+	display: flex;
+	align-items: center;
+	width: 425px;
+	height: 24px;
+	margin: 20px auto 30px auto;
+
+	color: var(--secondary-text-color);
+}
+
+.terms-link {
+	color: var(--accent-color);
+}
+.checkbox {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: absolute;
+}
+
+.check-icon {
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+	border: 2px solid var(--primary-text-color);
+	border-radius: 2px;
+	margin-right: 7px;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox:checked + .check-icon {
+	background-color: var(--accent-color);
+	border-color: var(--accent-color);
+	background-image: url("../images/check-icon.svg");
+
+	background-size: contain;
+	background-origin: border-box;
 }
