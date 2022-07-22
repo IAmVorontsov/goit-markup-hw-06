@@ -858,8 +858,9 @@ textarea {
 
 .check-icon {
 	display: inline-block;
+	text-align: center;
 	width: 16px;
-	height: 15px;
+	height: 16px;
 	border: 2px solid var(--primary-text-color);
 	border-radius: 2px;
 	margin-right: 7px;
@@ -869,9 +870,10 @@ textarea {
 
 .checkbox:checked + .check-icon {
 	background-color: var(--accent-color);
-	border-color: var(--accent-color);
+	border-color: transparent;
 	background-image: url("../images/check-icon.svg");
-
+	background-repeat: no-repeat;
 	background-size: contain;
 	background-origin: border-box;
+	background-position: center;
 }
